@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LogansDBTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e12475e54fd5ebbd986ea9989c29fd72ac1faa80")]
 [assembly: System.Reflection.AssemblyProductAttribute("LogansDBTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LogansDBTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -45,7 +45,7 @@ namespace LogansDBTest.Controllers
             {
                 // Login successful
                 HttpContext.Session.SetString("LoggedInUser", loginModel.Username);
-                return RedirectToAction("Index", "Home"); // Redirect to the home page
+                return RedirectToAction("Index", "User"); // Redirect to the home page
             }
 
             // Login failed

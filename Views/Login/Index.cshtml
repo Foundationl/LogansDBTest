@@ -10,29 +10,34 @@
     <p style="color:green;">@ViewBag.SuccessMessage</p>
 }
 
-<form asp-action="Login" method="post">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="Username" id="username" required />
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="Password" id="password" required />
-    </div>
-    <button type="submit">Login</button>
-</form>
-
-<hr />
-
-<h2>Create an Account</h2>
-<form asp-action="CreateAccount" method="post">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="Username" id="username" required />
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="Password" id="password" required />
-    </div>
-    <button type="submit">Create Account</button>
-</form>
+@if (ViewBag.ShowCreateAccount == null || ViewBag.ShowCreateAccount == false)
+{
+    <!-- Login Form -->
+    <form asp-action="Login" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="Username" id="username" required />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="Password" id="password" required />
+        </div>
+        <button type="submit">Login</button>
+    </form>
+}
+else
+{
+    <!-- Create Account Form -->
+    <h2>Create an Account</h2>
+    <form asp-action="CreateAccount" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="Username" id="username" required value="@ViewBag.Username" />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="Password" id="password" required />
+        </div>
+        <button type="submit">Create Account</button>
+    </form>
+}
