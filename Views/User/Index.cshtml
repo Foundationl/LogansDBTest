@@ -1,0 +1,25 @@
+@model IEnumerable<LogansDBTest.Models.User>
+
+<h1>User List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Insert Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.ID</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Insert_TimeStamp</td>
+            </tr>
+        }
+    </tbody>
+</table>
