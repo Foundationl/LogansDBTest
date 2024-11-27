@@ -49,8 +49,21 @@ namespace LogansDBTest.Controllers
             }
 
             // Login failed
-            ViewBag.ErrorMessage = "Invalid username or password.";
-            return View("Index"); // Reload the login page with an error message
+           else if (user == null)
+    {
+        // User does not exist, show create account form
+        ViewBag.ErrorMessage = "User does not exist. Please create an account.";
+        ViewBag.ShowCreateAccount = true; // Tell the view to show the create account prompt
+        ViewBag.Username = loginModel.Username; // Preserve the username for account creation
+    }
+    else
+    {
+        // Invalid password
+        ViewBag.ErrorMessage = "Invalid password. Please try again.";
+        ViewBag.ShowCreateAccount = false; // Ensure account creation is not shown
+    }
+
+    return View("Index"); // Reload the login page with the appropriate variables
         }
 
         // Account creation
