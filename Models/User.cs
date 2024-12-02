@@ -6,6 +6,7 @@ namespace LogansDBTest.Models
     public string? Name { get; set; } // Allow Name to be null
     public string? Email { get; set; } // Allow Email to be null
     public DateTime Insert_TimeStamp { get; set; }
+     public string Username { get; set; } // Unique identifier, matches UsersAndPasswords.Username
    public User()
    {
 

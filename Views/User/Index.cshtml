@@ -1,25 +1,50 @@
-@model IEnumerable<LogansDBTest.Models.User>
+@model LogansDBTest.Models.User
 
-<h1>User List</h1>
+<h1>Account Details</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Insert Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.ID</td>
-                <td>@user.Name</td>
-                <td>@user.Email</td>
-                <td>@user.Insert_TimeStamp</td>
-            </tr>
+@if (string.IsNullOrEmpty(Model.Name) || string.IsNullOrEmpty(Model.Email))
+{
+    <p>Welcome! Please complete your account information below.</p>
+}
+else
+{
+    <p>Welcome, @Model.Name! Here are your details:</p>
+    <ul>
+        <li><strong>Username:</strong> @Model.Username</li>
+        <li><strong>Email:</strong> @Model.Email</li>
+        <li><strong>Name: </strong>@Model.Name</li>
+    </ul>
+}
+
+<hr />
+
+<!-- Button to Show Update Form -->
+<button id="showUpdateFormButton" onclick="toggleUpdateForm()">Update Your Information</button>
+
+<!-- Hidden Update Form -->
+<div id="updateForm" style="display: none; margin-top: 20px;">
+    <h2>Update Your Information</h2>
+    <form asp-action="Save" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" value="@Model.Name" required />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" value="@Model.Email" required />
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+<script>
+    // Function to toggle the visibility of the update form
+    function toggleUpdateForm() {
+        var form = document.getElementById('updateForm');
+        var button = document.getElementById('showUpdateFormButton');
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+            button.style.display = 'none'; // Hide the button after showing the form
         }
-    </tbody>
-</table>
+    }
+</script>
