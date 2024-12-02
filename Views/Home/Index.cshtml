@@ -4,5 +4,13 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p> nah we dont need a new page</a>.</p>
+
+    @if (ViewBag.LoggedInUser != null)
+    {
+        <p>Hello, @ViewBag.LoggedInUser! You are logged in.</p>
+    }
+    else
+    {
+        <p>You are not logged in. <a asp-controller="Login" asp-action="Index">Login here</a>.</p>
+    }
 </div>

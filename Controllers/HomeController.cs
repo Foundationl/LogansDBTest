@@ -15,7 +15,18 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+         var loggedInUser = HttpContext.Session.GetString("LoggedInUser");
+
+            if (!string.IsNullOrEmpty(loggedInUser))
+            {
+                ViewBag.LoggedInUser = loggedInUser; // Pass the username to the view
+            }
+            else
+            {
+                ViewBag.LoggedInUser = null; // No user is logged in
+            }
+
+            return View();
     }
 
     public IActionResult Users()
